@@ -9,13 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.160.0",
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@types/three": "^0.160.0",
     "lil-gui": "^0.19.2",
+    "terser": "^5.44.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.8"
+    "vite": "^7.1.12"
   }
 }
