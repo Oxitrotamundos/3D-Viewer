@@ -10,6 +10,7 @@ export class LightingManager {
     this.renderer = renderer;
   }
 
+  //
   // Carga HDR environment para IBL - proporciona reflejos y GI
   public async loadEnvironment(url: string): Promise<THREE.Texture> {
     return new Promise((resolve, reject) => {
