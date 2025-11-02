@@ -166,6 +166,7 @@ const model = await loader.loadModel('/models/product.glb');
 scene.add(model);
 ```
 
+
 ### Con progreso
 ```typescript
 loader.onProgress((progress) => {
