@@ -10,10 +10,7 @@ export class LightingManager {
     this.renderer = renderer;
   }
 
-  /**
-   * Cargar mapa de entorno HDR para IBL (Iluminación Basada en Imágenes)
-   * Proporciona reflejos realistas e iluminación global
-   */
+  // Carga HDR environment para IBL - proporciona reflejos y GI
   public async loadEnvironment(url: string): Promise<THREE.Texture> {
     return new Promise((resolve, reject) => {
       const loader = new RGBELoader();
@@ -26,11 +23,11 @@ export class LightingManager {
 
           const envMap = pmremGenerator.fromEquirectangular(texture).texture;
 
-          // Aplicar a la escena
+          // Aplica a la escena
           this.scene.environment = envMap;
           this.scene.background = envMap;
 
-          // Limpiar recursos
+          // Limpia recursos
           texture.dispose();
           pmremGenerator.dispose();
 
@@ -42,10 +39,7 @@ export class LightingManager {
     });
   }
 
-  /**
-   * Agregar configuración básica de iluminación de tres puntos
-   * Usar como respaldo o complemento al entorno HDR
-   */
+  // Agrega iluminación básica de tres puntos
   public addBasicLighting(): void {
     // Luz principal
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
@@ -70,9 +64,7 @@ export class LightingManager {
     this.scene.add(ambientLight);
   }
 
-  /**
-   * Establecer intensidad del entorno
-   */
+  // Establece intensidad del environment map
   public setEnvironmentIntensity(intensity: number): void {
     this.scene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
